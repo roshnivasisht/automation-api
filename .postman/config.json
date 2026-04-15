@@ -1,0 +1,14 @@
+{
+  "workspace": {
+    "id": "dc08a1c6-ac28-4b0d-87f8-4a22d119d3be"
+  },
+  "entities": {
+    "collections": [
+      "../postman/collections/Regression suite Copy 2_54014470-9e9f1859-375a-4dde-9ae6-4dbbe7c56c48.postman_collection.json"
+    ],
+    "environments": [],
+    "specs": [],
+    "flows": [],
+    "globals": []
+  }
+}
