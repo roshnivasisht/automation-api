@@ -1,0 +1,33 @@
+private void handlePopups() {
+    if (!isIOS()) return;
+
+    String[] iosButtons = {
+        "Allow",
+        "Allow While Using App",
+        "Allow Once",
+        "OK"
+    };
+
+    // ✅ Handle up to 3 popups back to back
+    for (int popup = 0; popup < 3; popup++) {
+        boolean handled = false;
+        System.out.println("🔍 Checking for popup " + (popup + 1) + "...");
+
+        for (String button : iosButtons) {
+            try {
+                new WebDriverWait(driver, Duration.ofSeconds(4))
+                        .until(ExpectedConditions.elementToBeClickable(
+                                AppiumBy.accessibilityId(button))).click();
+                System.out.println("✅ Popup " + (popup + 1) + " handled via: " + button);
+                handled = true;
+                Thread.sleep(1500);
+                break;
+            } catch (Exception ignored) {}
+        }
+
+        if (!handled) {
+            System.out.println("ℹ️ No more popups after " + popup + " handled");
+            break;
+        }
+    }
+}
